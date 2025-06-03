@@ -30,4 +30,4 @@ spec:
               service:
                 name: canary  # ← This is a virtual action, not a real service
                 port:
-                  name: 80  # ← This tells ALB to use the `actions.canary` annotation
+                  name: use-annotation  # ← This tells ALB to use the `actions.canary` annotation
