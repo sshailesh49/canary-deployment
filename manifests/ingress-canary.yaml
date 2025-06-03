@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/security-groups: sg-00f9cbfa237460027
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
     alb.ingress.kubernetes.io/actions.weighted-canary: |
       {
         "type": "forward",
