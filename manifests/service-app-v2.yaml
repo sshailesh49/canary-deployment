@@ -2,11 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: app-v2
+  namespace: default  # ✅ Ensure it's in the same namespace as the Ingress
 spec:
   selector:
     app: my-app
     version: v2
   ports:
-  - port: 80
-    targetPort: 80
- type: NodePort
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: ClusterIP  # ✅ Use ClusterIP for ALB integration (NodePort not needed)
+
