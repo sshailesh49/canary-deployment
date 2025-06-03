@@ -8,6 +8,10 @@ kind: Ingress
 metadata:
   name: traffic-split
   annotations:
+    alb.ingress.kubernetes.io/group.name: traffic-split
+    alb.ingress.kubernetes.io/load-balancer-name: traffic-split
+    #alb.ingress.kubernetes.io/security-groups: sg-00f9cbfa237460027
+    alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/actions.canary: |
       {
         "type": "forward",
