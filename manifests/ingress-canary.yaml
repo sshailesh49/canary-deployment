@@ -6,16 +6,24 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/group.name: traffic-split
     alb.ingress.kubernetes.io/load-balancer-name: traffic-split
-    # alb.ingress.kubernetes.io/security-groups:   # ✅ Use correct SG ID
+    alb.ingress.kubernetes.io/security-groups: sg-1234567abcdef  # 🔁 Replace with real SG ID
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/actions.canary: |
+    alb.ingress.kubernetes.io/actions.weighted-canary: >
       {
         "type": "forward",
         "forwardConfig": {
           "targetGroups": [
-            { "serviceName": "app-v1", "servicePort": 80, "weight": 90 },
-            { "serviceName": "app-v2", "servicePort": 80, "weight": 10 }
+            {
+              "serviceName": "app-v1",
+              "servicePort": 80,
+              "weight": 90
+            },
+            {
+              "serviceName": "app-v2",
+              "servicePort": 80,
+              "weight": 10
+            }
           ]
         }
       }
@@ -28,6 +36,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: canary  # ← This is a virtual action, not a real service
+                name: weighted-canary
                 port:
-                  name: use-annotation  # ← This tells ALB to use the `actions.canary` annotation
+                  name: use-annotation
