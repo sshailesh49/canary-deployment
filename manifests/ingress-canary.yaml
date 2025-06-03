@@ -28,6 +28,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: canary  # ← This is a virtual action, not a real service
+                name: app-v1  # ← This is a virtual action, not a real service
                 port:
-                  name: use-annotation  # ← This tells ALB to use the `actions.canary` annotation
+                  name: 80  # ← This tells ALB to use the `actions.canary` annotation
