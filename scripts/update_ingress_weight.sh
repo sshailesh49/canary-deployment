@@ -27,10 +27,11 @@ spec:
   rules:
     - http:
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               service:
-                name: weighted-canary
+                name: weighted-canary  # <-- This is a virtual service (matches the annotation)
                 port:
-                  name: use-annotation
-            pathType: ImplementationSpecific
+                  name: use-annotation  # <-- Must literally be this string
 EOF
