@@ -12,7 +12,7 @@ metadata:
     alb.ingress.kubernetes.io/load-balancer-name: traffic-split
     #alb.ingress.kubernetes.io/security-groups: sg-00f9cbfa237460027
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/actions.canary: |
+    alb.ingress.kubernetes.io/actions.weighted-canary: |
       {
         "type": "forward",
         "forwardConfig": {
@@ -29,7 +29,7 @@ spec:
         paths:
           - backend:
               service:
-                name: canary
+                name: weighted-canary
                 port:
                   name: use-annotation
             pathType: ImplementationSpecific
