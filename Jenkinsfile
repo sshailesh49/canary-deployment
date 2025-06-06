@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-    KUBECTL_VERSION = 'v1.30.0'
-    KUBECONFIG = credentials('eks-kubeconfig-id')
+    // KUBECTL_VERSION = 'v1.30.0'
+   //  KUBECONFIG = credentials('eks-kubeconfig-id')
     THRESHOLD = '5'
   }
   stages {
