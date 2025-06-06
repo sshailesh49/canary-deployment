@@ -6,7 +6,7 @@ cat <<EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traffic-split
+  name: traffic-split1
   annotations:
     alb.ingress.kubernetes.io/group.name: traffic-split
     alb.ingress.kubernetes.io/load-balancer-name: traffic-split
