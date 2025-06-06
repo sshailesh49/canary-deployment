@@ -18,7 +18,7 @@ metadata:
         "forwardConfig": {
           "targetGroups": [
             {"serviceName": "app-v1", "servicePort": 80, "weight": $((100 - NEW_WEIGHT))},
-            {"serviceName": "app-v2", "servicePort": 80, "weight": $NEW_WEIGHT}
+            {"serviceName": "$SERVICE", "servicePort": 80, "weight": $NEW_WEIGHT}
           ]
         }
       }
