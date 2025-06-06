@@ -19,12 +19,12 @@ metadata:
             {
               "serviceName": "app-v1",
               "servicePort": 80,
-              "weight": 90
+              "weight": 50
             },
             {
               "serviceName": "app-v2",
               "servicePort": 80,
-              "weight": 10
+              "weight": 50
             }
           ]
         }
