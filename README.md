@@ -13,7 +13,7 @@
 
   aws iam create-policy \
       --policy-name AWSLoadBalancerControllerIAMPolicy \
-      --region us-west-2
+      --region us-west-2 \
       --policy-document file://iam-policy.json
 
   # ✅ Step 3: Create IAM Role for ServiceAccount (IRSA)
