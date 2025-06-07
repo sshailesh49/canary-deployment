@@ -1,6 +1,7 @@
 # canary-deployment
 # ✅ Step 1: Enable IAM OIDC Provider for your EKS cluster
-  expoet AWS_PROFILE=ram                  # aws profile name
+  expoet AWS_PROFILE=ram    # aws profile name
+  
   eksctl utils associate-iam-oidc-provider \
   --cluster CLUSTER_NAME \
   --region us-west-2
