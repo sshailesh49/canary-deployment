@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traffic-split1 
+  name: traffic-split
   namespace: default
   annotations:
     kubernetes.io/ingress.class: alb
