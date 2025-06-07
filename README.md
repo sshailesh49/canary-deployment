@@ -55,6 +55,7 @@
 
 # ✅ Step 5: Validate Controller is Running
    kubectl get deployment -n kube-system aws-load-balancer-controller
+   kubectl describe ingress <your-ingress-name>
 
 
   
