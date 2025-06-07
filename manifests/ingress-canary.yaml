@@ -11,7 +11,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
-    alb.ingress.kubernetes.io/actions.weighted-canary: |
+    alb.ingress.kubernetes.io/actions.canary: |
       {
         "type": "forward",
         "forwardConfig": {
@@ -38,6 +38,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: weighted-canary  # <-- This is a virtual service (matches the annotation)
+                name: canary  # <-- This is a virtual service (matches the annotation)
                 port:
                   name: use-annotation  # <-- Must literally be this string
