@@ -57,6 +57,15 @@
    kubectl get deployment -n kube-system aws-load-balancer-controller
    kubectl describe ingress <your-ingress-name>
 
+# Delete Ingress 
+ kubectl delete ingress <your-ingress-name> -n <namespace>
+#  Alternate (Hard Force)
+kubectl delete ingress <your-ingress-name> -n <namespace> --grace-period=0 --force
+# Restart controller 
+kubectl -n kube-system rollout restart deployment aws-load-balancer-controller
+
+
+
 
   
 
