@@ -17,6 +17,18 @@
       --policy-document file://iam-policy.json
 
   # ✅ Step 3: Create IAM Role for ServiceAccount (IRSA)
+    find account id : 
+    aws_account_id=$(aws sts get-caller-identity --query Account --output text)
+
+    eksctl create iamserviceaccount \
+       --cluster $CLUSTER_NAME \
+       --namespace kube-system \
+       --region $REGION \
+       --name aws-load-balancer-controller \
+       --attach-policy-arn arn:aws:iam::${aws_account_id}:policy/AWSLoadBalancerControllerIAMPolicy \
+       --approve
+
+# OR 
 
     eksctl create iamserviceaccount \
           --cluster $CLUSTER_NAME \
@@ -24,7 +36,7 @@
           --region us-west-2 \
           --name aws-load-balancer-controller \
           --attach-policy-arn arn:aws:iam::<ACCOUNT_ID>:policy/AWSLoadBalancerControllerIAMPolicy \
-         --approve
+          --approve
 
   # ✅ cert-manager Install with kubectl (v1.14.4)
     kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
