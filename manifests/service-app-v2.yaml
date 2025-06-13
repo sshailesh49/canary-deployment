@@ -9,6 +9,7 @@ spec:
     version: v2
   ports:
     - port: 80
+      name: use-annotation
       targetPort: 80
       protocol: TCP
   type: ClusterIP  # ✅ Use ClusterIP for ALB integration (NodePort not needed)
